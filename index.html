@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="domain analiz bağlantısı oluşturucu.">
+  <title>Link — IP & Domain</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header><a class="brand" href="./index.html"><span class="brand-icon">S/</span>Analiz<span class="brand-light">LINK</span></a><span class="local"><span></span> Yerel işlem</span></header>
+    <main>
+      <div class="eyebrow">ARAÇ KUTUSU / 01</div>
+      <h1>Bir gösterge.<br><span>Analize açılan bağlantılar.</span></h1>
+      <p class="intro">IP adresini veya domain’i yapıştır. Doğru analiz bağlantılarını oluştur, kopyala ve incelemeye geç.</p>
+      <section class="input-panel" aria-label="Gösterge girişi">
+        <form id="lookup-form" novalidate>
+          <label for="indicator">IP adresi veya domain</label>
+          <div class="input-row"><input id="indicator" type="text" placeholder="104.28.244.150 veya example.com" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="2048" aria-describedby="input-help error"><button class="primary" type="submit">Bağlantıları oluştur <span aria-hidden="true">→</span></button></div>
+          <p id="input-help" class="hint">IPv4, IPv6, domain ve HTTP(S) URL • [.] ve hxxps biçimleri desteklenir.</p>
+          <p id="error" class="error" role="alert" hidden></p>
+        </form>
+        <div class="examples"><span>Örnek dene</span><button type="button" data-example="104.28.244.150">104.28.244.150</button><button type="button" data-example="example.com">example.com</button></div>
+      </section>
+      <section id="results" aria-label="Analiz bağlantıları" hidden>
+        <div class="result-heading"><div><div class="eyebrow">HAZIR BAĞLANTILAR</div><div class="target-line"><h2 id="target"></h2><span class="type-badge" id="target-type"></span></div></div><button id="clear" class="quiet" type="button">Temizle</button></div>
+        <p id="ip-notice" class="ip-notice" role="status" hidden></p>
+        <div id="services" class="services"></div>
+        <div class="export-panel"><div class="export-heading"><label for="output">Kopyalamaya hazır</label><button id="copy-all" class="secondary" type="button">Tüm bağlantıları kopyala</button></div><textarea id="output" readonly spellcheck="false" aria-label="Oluşturulan analiz bağlantıları"></textarea><p class="hint">Yalnızca kullanılabilir bağlantılar listelenir.</p></div>
+      </section>
+      <section id="empty" class="empty"><span class="empty-icon" aria-hidden="true">↗</span><h2>İncelemen burada başlıyor.</h2><p>Bir IP veya domain gir; ilgili servisler aşağıda hazır olsun.</p><div class="service-names">AbuseIPDB <span>·</span> IPinfo <span>·</span> VirusTotal <span>·</span> Whois</div></section>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </main>
+    <footer><span>LINK<span class="footer-slash">/</span> Günlük analiz için küçük bir yardımcı.</span><span>API yok. Otomatik sorgu yok. Veri kaydı yok.</span></footer>
+  </div>
+</body>
+</html>
